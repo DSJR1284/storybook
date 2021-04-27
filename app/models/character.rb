@@ -1,5 +1,4 @@
 class Character < ApplicationRecord
-
-    belongs_to :story 
     belongs_to :user
+    belongs_to :story 
 end
