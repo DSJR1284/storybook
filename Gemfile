@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'pry'
 gem 'bcrypt'
 gem 'dotenv-rails'
+gem 'rails-erd'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter', '~> 1.4'
