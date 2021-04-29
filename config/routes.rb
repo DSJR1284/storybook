@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root to: 'application#welcome'
+
   resources :characters
   resources :stories
   resources :users
