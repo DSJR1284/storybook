@@ -5,11 +5,12 @@ class UsersController < ApplicationController
     end 
 
     def new 
-        if !logged_in?
-            @user = User.new
-        else 
-            redirect_to stories_path
-        end
+        @user = User.new
+        #  if !logged_in?
+        #     @user = User.new
+        # else 
+        #     redirect_to stories_path
+        # end
     end 
 
     def create 
