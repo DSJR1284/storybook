@@ -1,0 +1,22 @@
+<h1> User#new SignUp </h1>
+
+<% form_for @user do |f| %>
+
+<%= f.label :first_name %>
+<%= f.textarea :first_name %>
+
+<%= f.label :last_name %>
+<%= f.textarea :last_name %>
+
+<%= f.label :Username %>
+<%= f.textarea :username %>
+
+<%= f.label :Email %>
+<%= f.textarea :email %>
+
+<%= f.label :Password %>
+<%= f.password_field :password %>
+
+<% end %>
+
+
