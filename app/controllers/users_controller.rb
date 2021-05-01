@@ -4,13 +4,12 @@ class UsersController < ApplicationController
         @user = User.find_by_id(params[:id])
     end 
 
-    def new 
-        @user = User.new
-        #  if !logged_in?
-        #     @user = User.new
-        # else 
-        #     redirect_to stories_path
-        # end
+    def new        
+        if !logged_in?
+            @user = User.new
+        else 
+            redirect_to stories_path
+        end
     end 
 
     def create 
@@ -18,6 +17,8 @@ class UsersController < ApplicationController
         if @user.save
             session[:user_id] = @user.id
             redirect_to stories_path
+        else 
+            render :new 
         end
     end 
 
