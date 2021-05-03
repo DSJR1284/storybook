@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
     def new 
         if logged_in?
             redirect_to stories_path
+        end 
     end 
 
     def create
@@ -20,4 +21,4 @@ class SessionsController < ApplicationController
         redirect_to root_path 
     end 
 
-# end
+end

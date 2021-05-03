@@ -18,7 +18,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to stories_path
         else 
-            render :new 
+            render new_user_path 
         end
     end 
 
