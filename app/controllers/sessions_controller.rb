@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     end 
 
     def omniauth 
-        # binding.pry 
+         binding.pry 
         user = User.find_or_create_by(uid: request.env['omniauth.auth'][:uid], provider: request.env['omniauth.auth'][:provider]) do |a|
             a.username = request.env['omniauth.auth'][:info][:name]
             a.email = request.env['omniauth.auth'][:info][:email]
