@@ -13,6 +13,10 @@
   <body> 
     <%= yield %>
     <% if logged_in?%>
+    <%= link_to "New Story", new_story_path(@story) %>
+    <br><br>
+    <%= link_to "Book Shelf", stories_path %>
+    <br><br>
     <%= button_to "Log Out", logout_path %>
     <% end %>
   </body>

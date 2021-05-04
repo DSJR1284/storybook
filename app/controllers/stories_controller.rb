@@ -12,8 +12,9 @@ class StoriesController < ApplicationController
     def create 
         @story = Story.new 
         @story.title = params[:title]
-        @story.description = params[:description]
+        @story.description = params[:description]       
         @story.save 
+        binding.pry 
         redirect_to stories_path(@story)
     end 
     
@@ -29,7 +30,7 @@ class StoriesController < ApplicationController
 
     end 
 
-    def destroy
+    def delete 
 
     end 
 
