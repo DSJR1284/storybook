@@ -1,7 +1,10 @@
 <h1>Book Shelf</h1>
 
 <%= @stories.each do |s| %>
-    <%= s.title %>
-    <%= s.description %>
-
+    <label> Title: </label>
+    <ul><%= s.title %></ul>
+    <label> Story: </label>
+    <ul><%= s.description %></ul>
+    <%= s.@user.username %>
 <% end %>
+

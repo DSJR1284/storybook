@@ -13,6 +13,15 @@ class StoriesController < ApplicationController
         @stories = Story.all 
     end 
 
+    def create 
+        @story = Story.new 
+        @story.title = params[:title]
+        @story.description = params[:description]
+        @story.save 
+        
+
+    end 
+
     def edit 
 
     end 
