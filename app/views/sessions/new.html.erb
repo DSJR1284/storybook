@@ -1,9 +1,9 @@
 <h1>Login test</h1>
 
 <%= form_with url: login_path do |f| %>
-    <label> Username: </label>
+    <%= f.label :username %>
     <%= f.text_field :username %><br><br>
-    <label> Password </label>
+    <%= f.label :password %>
     <%= f.password_field :password %><br><br>
     <%= f.submit "Log In" %>
     <br><br>

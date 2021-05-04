@@ -1,6 +1,6 @@
 <h1> User#new SignUp </h1>
 
-<%= form_for @user do |f| %>
+<%= form_with model: @user do |f| %>
 <%= f.label :first_name %>
 <%= f.text_field :first_name %><br><br>
 
