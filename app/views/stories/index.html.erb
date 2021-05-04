@@ -1,1 +1,7 @@
 <h1>Book Shelf</h1>
+
+<%= @stories.each do |s| %>
+    <%= s.title %>
+    <%= s.description %>
+
+<% end %>
