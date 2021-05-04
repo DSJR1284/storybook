@@ -17,13 +17,14 @@ class SessionsController < ApplicationController
     end 
 
     def omniauth 
-        #  binding.pry 
-        user = User.find_or_create_by(uid: request.env['omniauth.auth'][:uid], provider: request.env['omniauth.auth'][:provider]) do |a|
+        user = User.find_or_create_by(uid: request.env['omniauth.auth'][:uid], provider: request.env['omniauth.auth'][:provider]) do |a|          
+            a.first_name = request.env['omniauth.auth'][:info][:first_name]
+            a.last_last = request.env['omniauth.auth'][:info][:last_name]
             a.username = request.env['omniauth.auth'][:info][:name]
             a.email = request.env['omniauth.auth'][:info][:email]
             a.password = SecureRandom.hex(6)
-        end 
-        
+        end  
+           
         if user.valid? 
             session[:user_id] = user.id
             redirect_to stories_path

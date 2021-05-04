@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     def welcome         
     end 
 
-    def sign up
+    def sign_up 
     end 
 
 end
