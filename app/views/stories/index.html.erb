@@ -1,6 +1,14 @@
-<h1>Book Shelf</h1>
+<br><br>
+
+<% if @user %>
+    <%= @user.username %>
+<% else %>
+    <h1>Book Shelf</h1>
+<% end %>
 
 <% @stories.each do |s| %>
     <label> Title: </label>
     <ul><%= link_to s.title, story_path(s) %></ul>   
 <% end %><br><br>
+
+

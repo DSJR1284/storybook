@@ -1,8 +1,14 @@
 class StoriesController < ApplicationController
      before_action :redirect_if_not_logged_in
 
-    def index 
-        @stories = Story.all         
+    def index
+        # binding.pry 
+        if params[:user_id] 
+            @user = User.find_by(params[:user_id])
+            @stories = @user.stories
+        else
+            @stories = Story.all 
+        end         
     end 
     
     def new 

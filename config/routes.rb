@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
   resources :users do 
-    resources :stories, only: [:new, :create,:index]
+    resources :stories, only: [:index, :new, :create]
   end 
   
   resources :stories do 
@@ -17,8 +17,6 @@ Rails.application.routes.draw do
   end 
 
   resources :stories 
-  resources :comments  
-
-
-  
+  resources :comments 
+    
 end
