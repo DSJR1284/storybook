@@ -8,8 +8,13 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#logout'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
-  resources :users
-  resources :stories
-  resources :comments
+  resources :users do 
+    resources :stories only: [:index]
+  end 
+  
+  resources :stories do 
+    resources :comments only: [:new, :index, :show]
+  end 
+
   
 end
