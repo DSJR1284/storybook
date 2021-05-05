@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
     def index
         # binding.pry 
         if params[:user_id] 
-            @user = User.find_by(params[:user_id])
+            @user = User.find_by_id(params[:user_id])
             @stories = @user.stories
         else
             @stories = Story.all 
@@ -23,7 +23,7 @@ class StoriesController < ApplicationController
     end 
     
     def show 
-
+        @story = Story.find_by(id: params[:id]) 
     end 
 
     def edit 
@@ -41,7 +41,7 @@ class StoriesController < ApplicationController
     private 
     
     def story_params
-        params.require(:story).permit(:title, :description)
+        params.require(:story).permit(:title, :description, :user_id)
     end 
 
 end

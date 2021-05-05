@@ -24,8 +24,8 @@ class CommentsController < ApplicationController
 
     end 
 
-    def delete
-
+    def delete    
     
     end 
+
 end
