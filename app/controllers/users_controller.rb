@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+    def index
+
+    end 
+
     def new        
         if !logged_in?
             @user = User.new
@@ -16,6 +20,10 @@ class UsersController < ApplicationController
         else 
             render new_user_path 
         end
+    end 
+
+    def show
+
     end 
 
     private 
