@@ -1,8 +1,6 @@
 <h1>Book Shelf</h1>
 
-<%= @stories.each do |s| %>
+<% @stories.each do |s| %>
     <label> Title: </label>
-    <ul><%= s.title %></ul>
-    <label> Story: </label>
-    <ul><%= s.description %></ul>    
-<% end %>
+    <ul><%= link_to s.title, story_path(s) %></ul>   
+<% end %><br><br>
