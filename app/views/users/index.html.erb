@@ -4,5 +4,5 @@
 
 <% @users.each do |a| %>
     <label> Story Tellers: </label>
-    <ul><%= link_to a.username, user_path(a) %></ul>   
+    <ul><%= link_to a.username, user_stories_path(a) %></ul>   
 <% end %><br><br>
