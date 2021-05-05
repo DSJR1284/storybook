@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-    validates :comments, length: { minimum: 50 }    
+    validates :comments, presence: true  
     belongs_to :user 
     belongs_to :story
 
