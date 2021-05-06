@@ -1,15 +1,17 @@
 <br><br>
 
 <% if @story %>
-    <h2> Story Title: <%= @story.title %></h2><br>
-    <h2> Story Title: <%= @story.description %></h2><br>
+    <h3> Story Title: <%= @story.title %></h3><br>
+    <h3> Story: <%= @story.description %></h3><br>
 <% else %>
     <h1>New Comment</h1>
 <% end %>
 
-<%= form_with model: @comment do |f| %>
+<%= form_with model: [@story, @comment] do |f| %>
     <h3>Add A Comment:</h3>
-     <%= f.text_area :comment %><br><br>
+     <%= f.hidden_field :story_id %>
+     <%= f.hidden_field :user_id, value: current_user.id %>
+     <%= f.text_area :reviews %><br><br>
      <%= f.submit "Submit Comment" %> 
 <% end %> 
 <br><br> 

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   post '/logout', to: 'sessions#logout'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
-  post 'stories/:id/comments/new', to: 'comments#create'
+  
 
   resources :stories 
   resources :comments  

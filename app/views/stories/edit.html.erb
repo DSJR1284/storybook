@@ -1,2 +1,8 @@
 <br><br>
-<h1> Edit </h1>
+<h1> Edit Story  </h1>
+
+<% form_for @story do |f| %>
+<%= f.label :title %>
+<%= f.text_area :title %>
+<%= f.submit %>      
+<% end %>

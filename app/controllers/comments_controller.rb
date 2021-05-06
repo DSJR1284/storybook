@@ -5,16 +5,21 @@ class CommentsController < ApplicationController
     end 
     
     def new 
-       @comment = Comment.new 
-       @story = Story.find_by(id: params[:id])       
+        @comment = Comment.new 
+        @story = Story.find_by(id: params[:story_id])       
     end 
     
     def create
-        @comment = current_user.stories.build(comment_params)      
+
+        # @comment = Comment.create(comment_params)
+        # redirect_to story_path(@comment.story)
+        @story = Story.find_by(id: params[:story_id])
+        @comment = @story.comments.build(comment_params) 
+        byebug     
         if @comment.save 
-            redirect_to story_path 
+            redirect_to story_path(@story) 
         else 
-            render new_story_comment_path      
+            render :new     
         end 
     end 
     
@@ -30,7 +35,8 @@ class CommentsController < ApplicationController
 
     end 
 
-    def delete    
+    def delete 
+           
     
     end
     
