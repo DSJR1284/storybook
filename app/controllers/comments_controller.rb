@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:comment).permit(:comment, :story_id, story_attributes: [:title, :description]) 
+        params.require(:comment).permit(:reviews, :user_id, :story_id) 
     end 
 
 end

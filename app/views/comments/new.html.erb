@@ -1,9 +1,8 @@
 <br>
 <h1>New Comment</h1>
 
-<%= form_for @comment do |f| %>
-     <%= f.label :comment %> 
+<%= form_with model: @comment do |f| %>
      <%= f.text_area :comment %><br><br>
-     <%= f.submit "Submit Commit" %> 
+     <%= f.submit "Submit Comment" %> 
 <% end %> 
 <br><br> 

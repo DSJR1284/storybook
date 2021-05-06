@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-    validates :comment, presence: true  
+    validates :reviews, presence: true  
     belongs_to :user 
     belongs_to :story
 
