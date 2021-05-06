@@ -37,7 +37,9 @@ class StoriesController < ApplicationController
     end 
 
     def delete 
-
+        @story = Story.find_by(id: params[:id])
+        @story.destroy
+        redirect_to stories_path
     end 
 
     private 
