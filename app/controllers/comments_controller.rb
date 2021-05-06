@@ -6,22 +6,15 @@ class CommentsController < ApplicationController
     
     def new 
        @comment = Comment.new 
-       @story = Story.find_by(id: params[:id])
-        # if params[:story_id] && Story.find_by_id(params[:story_id])
-        #      @comment = @story.comments.build
-        #     @comment.build_story
-        # else
-        #     @comment = Comment.new 
-        #     @comment.build_story 
-        # end 
+       @story = Story.find_by(id: params[:id])       
     end 
     
     def create
         @comment = current_user.stories.build(comment_params)      
         if @comment.save 
-            redirect_to comments_path 
+            redirect_to story_path 
         else 
-            render :new        
+            render new_story_comment_path      
         end 
     end 
     

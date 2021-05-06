@@ -2,7 +2,6 @@ class StoriesController < ApplicationController
      before_action :redirect_if_not_logged_in
 
     def index
-        # binding.pry 
         if params[:user_id] 
             @user = User.find_by_id(params[:user_id])
             @stories = @user.stories
@@ -16,7 +15,6 @@ class StoriesController < ApplicationController
     end 
     
     def create 
-        # byebug 
         @story = current_user.stories.build(story_params)      
         @story.save 
         redirect_to stories_path
@@ -27,11 +25,15 @@ class StoriesController < ApplicationController
     end 
 
     def edit 
-        @story = Story.find(params[:id])
+        @story = Story.find_by(id: params[:id])
     end 
 
     def update 
-
+        @story = Story.find_by(id: params[:id])
+        if @story
+           @story.update(story_params)
+           redirect_to stories_path
+        end 
     end 
 
     def delete 
