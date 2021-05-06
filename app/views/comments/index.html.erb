@@ -1,1 +1,11 @@
+<br>
+
 <h1>Comment index</h1>
+<% if @story %>
+    <%= @story.title%>'s comments:
+<% end %>
+   
+
+<% @comments.each do |c|  %>
+    <%= c.comments %>
+<% end %>

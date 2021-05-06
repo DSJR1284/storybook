@@ -1,10 +1,18 @@
 <h1> Show me the story</h1>
 
-
-
-
 <h3><label> Title: </label></h3>
 <ul><%= @story.title %></ul> 
 <h3><label> Story: </label></h3>
-<ul><%= @story.description %></ul>    
+<ul><%= @story.description %></ul> 
 <br><br> 
+
+
+<%= button_to "Add A Comment", new_story_comment_path(@story), method: :get%>
+
+
+
+
+
+
+
+

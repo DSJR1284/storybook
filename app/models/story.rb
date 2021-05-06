@@ -4,7 +4,8 @@ class Story < ApplicationRecord
     validates :description, length: { minimum: 50 }
     
     has_many :comments
-    has_many :users, through: :comments   
+    has_many :users, through: :comments
+      
     
 end
 

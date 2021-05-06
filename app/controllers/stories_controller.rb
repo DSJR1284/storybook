@@ -23,9 +23,7 @@ class StoriesController < ApplicationController
     end 
     
     def show 
-       
-        
-         @story = Story.find_by(id: params[:id]) 
+        @story = Story.find_by(id: params[:id]) 
     end 
 
     def edit 
@@ -43,7 +41,7 @@ class StoriesController < ApplicationController
     private 
     
     def story_params
-        params.require(:story).permit(:title, :description, :user_id)
+        params.require(:story).permit(:title, :description, :user_id, comments_attributes: [:comment])
     end 
 
 end

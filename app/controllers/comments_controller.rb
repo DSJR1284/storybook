@@ -1,19 +1,32 @@
 class CommentsController < ApplicationController
 
-    def index          
-               
+    def index        
+        @comments = Comment.all              
     end 
     
     def new 
-        
+       @comment = Comment.new 
+       @story = Story.find_by(id: params[:id])
+        # if params[:story_id] && Story.find_by_id(params[:story_id])
+        #      @comment = @story.comments.build
+        #     @comment.build_story
+        # else
+        #     @comment = Comment.new 
+        #     @comment.build_story 
+        # end 
     end 
     
-    def create 
-        
+    def create
+        @comment = current_user.stories.build(comment_params)      
+        if @comment.save 
+            redirect_to comments_path 
+        else 
+            render :new        
+        end 
     end 
     
     def show 
-
+        @comment = Comment.find_by(id: params[:id])
     end 
 
     def edit 
@@ -26,6 +39,12 @@ class CommentsController < ApplicationController
 
     def delete    
     
+    end
+    
+    private
+
+    def comment_params
+        params.require(:comment).permit(:comment, :story_id, story_attributes: [:title, :description]) 
     end 
 
 end

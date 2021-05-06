@@ -7,16 +7,17 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   post '/logout', to: 'sessions#logout'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
+  post 'stories/:id/comments/new', to: 'comments#create'
 
+  resources :stories 
+  resources :comments  
+  
   resources :users do 
     resources :stories, only: [:index, :new, :create]
   end 
   
   resources :stories do 
-    resources :comments, only: [:new, :create, :index, :show]
+    resources :comments, only: [:index, :new, :create, :show]
   end 
 
-  resources :stories 
-  resources :comments 
-    
 end
