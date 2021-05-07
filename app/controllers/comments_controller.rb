@@ -9,10 +9,7 @@ class CommentsController < ApplicationController
         @story = Story.find_by(id: params[:story_id])       
     end 
     
-    def create
-
-        # @comment = Comment.create(comment_params)
-        # redirect_to story_path(@comment.story)
+    def create        
         @story = Story.find_by(id: params[:story_id])
         @comment = @story.comments.build(comment_params) 
         byebug     
@@ -35,8 +32,7 @@ class CommentsController < ApplicationController
 
     end 
 
-    def delete 
-           
+    def delete            
     
     end
     
