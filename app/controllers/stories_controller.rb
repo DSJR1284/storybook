@@ -31,10 +31,8 @@ class StoriesController < ApplicationController
 
     def update 
         @story = Story.find_by(id: params[:id])
-        if @story
-           @story.update(story_params)
-           redirect_to stories_path
-        end 
+        @story.update(story_params)
+        redirect_to stories_path
     end 
 
     def delete 
