@@ -1,8 +1,10 @@
 <br><br>
 <h1> Edit Story  </h1>
 
-<% form_for @story do |f| %>
-<%= f.label :title %>
-<%= f.text_area :title %>
-<%= f.submit %>      
+<%= form_with model: @story do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br><br>
+    <%= f.label :Story %>
+    <%= f.text_area :description %><br><br>
+    <%= f.submit "Edit Story" %><br><br>
 <% end %>

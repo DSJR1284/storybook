@@ -6,8 +6,9 @@
 <ul><%= @story.description %></ul> 
 <br><br> 
 
-
 <%= button_to "Add A Comment", new_story_comment_path(@story), method: :get%><br><br>
+
+<%= button_to "View Comments", story_comments_path(@story), method: :get%><br><br>
 
 
 
