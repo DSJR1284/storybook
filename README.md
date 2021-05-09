@@ -30,28 +30,4 @@
     The application is available as open source under the terms of the MIT License.
 
 ## Code of Conduct
-    Everyone interacting in the Storybook project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
-        
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    Everyone interacting in the Storybook project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.        
