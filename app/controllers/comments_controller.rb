@@ -52,9 +52,8 @@ class CommentsController < ApplicationController
     end 
 
     def comment_user 
-        @comment = Comment.find_by(id: params[:id])
-        binding.pry
-          unless current_user?(@comment.user_id)
-        end              
+         @comment = Comment.find_by(id: params[:id])
+        #   unless current_user?(@comment.user_id)
+        # end              
     end 
 end

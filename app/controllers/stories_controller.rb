@@ -5,7 +5,7 @@ class StoriesController < ApplicationController
     def index
         if params[:user_id] 
             @user = User.find_by_id(params[:user_id])
-            @stories = @user.stories
+            @stories = @user.stories.shelf
         else
             @stories = Story.shelf
         end         
