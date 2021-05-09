@@ -1,11 +1,17 @@
-<br>
+<br><br>
 
-<h1>Comment index</h1>
-<%# <% if @story %>
-    <%# <%= @story.title%>
-<%# <% end %> 
-   
-<%# 
-<% @story.reviews.each do |c|  %>
-    <%# <%= c.reviews %>  
-<%# <% end %> 
+    <% if @story %>
+        <h3> Title : <%= @story.title%></h3><br>
+        <h3> Story: <%= @story.description%></h3>
+    <% else %>
+        <h1>Comment index</h1>
+    <% end %><br><br>
+
+        <label> All Comments</label>
+        <% @comments.each do |c| %>        
+            <ul><%= c.reviews %></ul>  
+        <% end %><br><br>
+
+        <%= button_to "Edit Comments", edit_comment_path(@comments), method: :get%><br><br>
+
+

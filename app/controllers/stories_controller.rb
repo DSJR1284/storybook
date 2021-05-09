@@ -1,5 +1,6 @@
 class StoriesController < ApplicationController
-     before_action :redirect_if_not_logged_in
+    #  before_action :redirect_if_not_logged_in
+     before_action :correct_user, only: [:edit, :update, :destory]
 
     def index
         if params[:user_id] 
@@ -22,21 +23,20 @@ class StoriesController < ApplicationController
     
     def show 
         @story = Story.find_by(id: params[:id])
-        # @stories = Story.all 
     end 
 
     def edit 
-        @story = Story.find_by(id: params[:id])
+        @story = Story.find_by(id: params[:id])        
     end 
 
-    def update 
+    def update           
         @story = Story.find_by(id: params[:id])
-        @story.update(story_params)
-        redirect_to stories_path
+         @story.update(story_params)
+         redirect_to stories_path
     end 
 
-    def delete 
-        @story = Story.find_by(id: params[:id])
+    def destroy        
+        @story = Story.find_by(id: params[:id])        
         @story.destroy
         redirect_to stories_path
     end 
@@ -45,6 +45,13 @@ class StoriesController < ApplicationController
     
     def story_params
         params.require(:story).permit(:title, :description, :user_id)
+    end 
+
+    def correct_user 
+        @story = Story.find_by(id: params[:id])
+        unless current_user?(@story.user)
+            redirect_to stories_path
+        end 
     end 
 
 end

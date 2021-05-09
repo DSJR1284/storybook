@@ -20,11 +20,7 @@ class UsersController < ApplicationController
         else 
             render new_user_path 
         end
-    end 
-
-    def show
-
-    end 
+    end
 
     private 
     
