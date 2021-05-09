@@ -1,13 +1,13 @@
 class StoriesController < ApplicationController
     #  before_action :redirect_if_not_logged_in
-     before_action :correct_user, only: [:edit, :update, :destory]
+     before_action :story_user, only: [:edit, :update, :destory]
 
     def index
         if params[:user_id] 
             @user = User.find_by_id(params[:user_id])
             @stories = @user.stories
         else
-            @stories = Story.all 
+            @stories = Story.shelf
         end         
     end 
     
@@ -47,7 +47,7 @@ class StoriesController < ApplicationController
         params.require(:story).permit(:title, :description, :user_id)
     end 
 
-    def correct_user 
+    def story_user 
         @story = Story.find_by(id: params[:id])
         unless current_user?(@story.user)
             redirect_to stories_path

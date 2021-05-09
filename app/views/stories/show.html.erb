@@ -3,7 +3,9 @@
 <h3><label> Title: </label></h3>
 <ul><%= @story.title %></ul> 
 <h3><label> Story: </label></h3>
-<ul><%= @story.description %></ul> 
+<ul><%= @story.description %></ul>
+<h3><label> Storyteller: </label></h3>
+<ul><%= @story.user.username %></ul>  
 <br><br> 
 
 <%= button_to "Add A Comment", new_story_comment_path(@story), method: :get%><br><br>
