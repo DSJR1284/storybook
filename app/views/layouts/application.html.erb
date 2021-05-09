@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<br><p>Test<p>
 <html>
   <head>
     <title>Storybook</title>
@@ -10,14 +11,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>   
-      <% if logged_in?%>
-        <h3> Welcome <%= current_user.username %>
-      <%= yield %>    
+  <body>
+  <p>log in section<p>
+      <% if logged_in? %>
+        <h3> Welcome <%= current_user.username %></h3>
+      <%= yield %>   
         <%= link_to "New Story", new_story_path(@story) %> |
-        <%= link_to "Story Tellers", users_path%>   
-        <%= link_to  "Book Shelf", stories_path %><br><br> 
+        <%= link_to "Story Tellers", users_path%> |   
+        <%= link_to  "BookShelf", stories_path %><br><br> 
         <%= button_to "Log Out", logout_path %>    
       <% end %>
   </body>
 </html>
+
+ 
