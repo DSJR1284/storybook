@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+    before_action :redirect_if_not_logged_in
+    
     def index
         @users = User.alpha 
     end 
@@ -7,7 +8,7 @@ class UsersController < ApplicationController
     def new        
         if !logged_in?
             @user = User.new
-        else 
+        else            
             redirect_to stories_path
         end
     end 
@@ -17,7 +18,8 @@ class UsersController < ApplicationController
         if user.save
             session[:user_id] = user.id
             redirect_to stories_path
-        else 
+        else
+            flash[:message] = " Invlaid Credentials Please try again." 
             render new_user_path 
         end
     end

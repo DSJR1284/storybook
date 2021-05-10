@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-    #  before_action :redirect_if_not_logged_in
+      before_action :redirect_if_not_logged_in
      before_action :story_user, only: [:edit, :update, :destory]
 
     def index
@@ -17,8 +17,11 @@ class StoriesController < ApplicationController
     
     def create 
         @story = current_user.stories.build(story_params)      
-        @story.save 
-        redirect_to stories_path
+        if @story.save 
+            redirect_to stories_path
+        else 
+            render :new 
+        end 
     end 
     
     def show 

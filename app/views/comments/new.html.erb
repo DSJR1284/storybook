@@ -1,4 +1,6 @@
 <br><br>
+<%= render partial: 'layouts/errors', locals: {object: @comment}  %>
+
 
 <% if @story %>
     <h3> Story Title: <%= @story.title %></h3><br>

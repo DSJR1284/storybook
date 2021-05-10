@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    before_action :redirect_if_not_logged_in
 
     def new 
         if logged_in?
@@ -11,7 +12,8 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
             redirect_to users_path
-        else        
+        else
+            flash[:message] = "Invlaid Credentials Please try again."         
             render :new 
         end
     end 

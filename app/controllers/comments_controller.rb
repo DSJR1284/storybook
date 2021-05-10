@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    before_action :redirect_if_not_logged_in
     before_action :comment_user, only: [:edit, :update, :destory]
     
     def index
