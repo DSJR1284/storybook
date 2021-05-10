@@ -27,21 +27,21 @@ class CommentsController < ApplicationController
     end 
     
     def show 
-        @comment = Comment.find_by(id: params[:id])
+        comment_id 
     end 
 
     def edit 
-        @comment = Comment.find_by(id: params[:id])
+        comment_id 
     end 
 
     def update 
-        @comment = Comment.find_by(id: params[:id])
+        comment_id 
         @comment.update(comment_params)
         redirect_to story_comments_path        
     end 
 
     def delete            
-        @comment = Comment.find_by(id: params[:id])
+        comment_id 
         @comment.destroy(comment_params)
         redirect_to comments_path
     end
@@ -50,6 +50,10 @@ class CommentsController < ApplicationController
 
     def comment_params
         params.require(:comment).permit(:reviews, :user_id, :story_id) 
+    end
+
+    def comment_id
+        @comment = Comment.find_by(id: params[:id])
     end 
 
     def comment_user 
