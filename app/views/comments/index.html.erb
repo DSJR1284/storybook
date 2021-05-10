@@ -11,9 +11,11 @@
         <% @comments.each do |c| %>        
             <ul><%= c.reviews %></ul>
             <p>Comment By: <p>
-            <ul><%= c.user.username %></ul>  
+            <ul><%= c.user.username %></ul>
+            <% if current_user.id == c.user_id%>
+                <%= link_to "Edit", edit_comment_path(c)%> 
+            <% end %>
         <% end %><br><br>
-
-        <%# <%= button_to "Edit Comments", edit_comment_path(@comments, method: :get)%><br><br> 
+ 
 
 

@@ -2,8 +2,8 @@
 
 <h1>Comment Edit</h1>
 
-<%= form_with model: @comment do |f| %>
-    <%= f.label :Comment %>
-    <%= f.text_area :reviews %><br><br>
-    <%= f.submit "Edit Comment" %><br><br>
-<% end %>
+<%= render partial: 'comment' %>
+<br><br>
+
+<%= button_to 'Delete Comment', comment_path(@comment) %>  
+<br>

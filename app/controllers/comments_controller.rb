@@ -24,16 +24,17 @@ class CommentsController < ApplicationController
         else 
             render :new     
         end 
-    end    
+    end      
 
     def edit 
-        comment_id 
+        comment_id
+        #  @comment = Comment.find(id: params[:id]) 
     end 
 
     def update 
         comment_id 
         @comment.update(comment_params)
-        redirect_to story_comments_path        
+        redirect_to story_comments_path(@comment.story_id)        
     end 
 
     def delete            

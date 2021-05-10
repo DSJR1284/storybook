@@ -26,6 +26,7 @@ class StoriesController < ApplicationController
     
     def show 
         story_id 
+        @comments = @story.comments 
     end 
 
     def edit 

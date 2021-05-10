@@ -1,0 +1,7 @@
+<%= form_with model: [@story, @comment] do |f| %>
+    <h3>Add A Comment:</h3>
+     <%= f.hidden_field :story_id %>
+     <%= f.hidden_field :user_id, value: current_user.id %>
+     <%= f.text_area :reviews %><br><br>
+     <%= f.submit %> 
+<% end %> 
