@@ -6,7 +6,7 @@
     <h1>Book Shelf</h1>
 <% end %>
 
-<h2> Title's To Choose From: </h2>
+<h2> Stories To Choose From: </h2>
 <% @stories.each do |s| %>    
 <ul><%= link_to s.title, story_path(s) %></ul><br>   
 <% end %><br><br>

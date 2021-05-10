@@ -1,7 +1,7 @@
-<h1>Welcome To Storybook</h1>
+<h1>Welcome <%= current_user.username %> To Storybook</h1>
 
 <h3>Below is a list of Story Tellers for you to choose from</h3>
-<h2> Story Tellers: </h2> 
+
 <% @users.each do |a| %>   
 <ul><%= link_to a.username, user_stories_path(a) %></ul>   
 <% end %><br><br>

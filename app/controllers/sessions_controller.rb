@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
     def new 
         if logged_in?
-            redirect_to stories_path
+            redirect_to users_path
         end 
     end 
 
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect_to stories_path
+            redirect_to users_path
         else        
             render :new 
         end
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
            
         if user.valid? 
             session[:user_id] = user.id
-            redirect_to stories_path
+            redirect_to users_path
         else 
             redirect_to root_path
         end 

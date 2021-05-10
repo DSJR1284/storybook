@@ -9,9 +9,11 @@
 
         <label> All Comments</label>
         <% @comments.each do |c| %>        
-            <ul><%= c.reviews %></ul>  
+            <ul><%= c.reviews %></ul>
+            <p>Comment By: <p>
+            <ul><%= c.user.username %></ul>  
         <% end %><br><br>
 
-        <%= button_to "Edit Comments", edit_comment_path(@comments), method: :get%><br><br>
+        <%# <%= button_to "Edit Comments", edit_comment_path(@comments, method: :get)%><br><br> 
 
 

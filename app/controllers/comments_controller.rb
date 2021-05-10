@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
         @story = Story.find_by(id: params[:story_id])
         @comment = @story.comments.build(comment_params)     
         if @comment.save 
-            redirect_to story_path(@story) 
+            redirect_to story_comments_path(@story) 
         else 
             render :new     
         end 
@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
     def update 
         @comment = Comment.find_by(id: params[:id])
         @comment.update(comment_params)
-        redirect_to comments_path        
+        redirect_to story_comments_path        
     end 
 
     def delete            
