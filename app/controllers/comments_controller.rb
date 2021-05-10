@@ -24,11 +24,7 @@ class CommentsController < ApplicationController
         else 
             render :new     
         end 
-    end 
-    
-    def show 
-        comment_id 
-    end 
+    end    
 
     def edit 
         comment_id 
