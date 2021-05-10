@@ -12,9 +12,9 @@
 
 <%= button_to "View Comments", story_comments_path(@story), method: :get%><br><br>
 
- <%# <% if @story.user == current_user %> 
+  <% if current_user == @story.user %> 
     <%= button_to "Edit Story", edit_story_path(@story), method: :get%><br><br>
-<%# <% end %>  
+ <% end %>  
 
 
 

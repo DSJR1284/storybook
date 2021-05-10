@@ -56,8 +56,9 @@ class StoriesController < ApplicationController
 
     def story_user #correct user logged in (create edit update, destroy)
        story_id 
+       binding.pry
         unless current_user?(@story.user)
             redirect_to stories_path
-        end 
+         end 
     end 
 end
