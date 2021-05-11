@@ -5,5 +5,5 @@
 <%= render partial: 'comment' %>
 <br><br>
 
-<%= button_to 'Delete Comment', comment_path(@comment) %>  
-<br>
+<%= button_to 'Delete Comment', comment_path(@comment),
+    data: {:confirm => 'Are you sure?'}, :method => :delete %><br> 

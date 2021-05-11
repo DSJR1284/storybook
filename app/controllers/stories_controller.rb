@@ -40,7 +40,7 @@ class StoriesController < ApplicationController
     end 
 
     def destroy        
-      story_id        
+        story_id        
         @story.destroy
         redirect_to stories_path
     end 

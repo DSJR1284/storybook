@@ -37,10 +37,10 @@ class CommentsController < ApplicationController
         redirect_to story_comments_path(@comment.story_id)        
     end 
 
-    def delete            
+    def destroy            
         comment_id 
-        @comment.destroy(comment_params)
-        redirect_to comments_path
+        @comment.destroy
+        redirect_to stories_path
     end
     
     private
