@@ -4,4 +4,8 @@
 
 <% @users.each do |a| %>   
 <ul><%= link_to a.username, user_stories_path(a) %></ul>   
-<% end %><br><br>
+<% end %>
+
+<h3>Story of the day</h3>
+<%= link_to @random_story.title, stories_path %>
+<br><br>

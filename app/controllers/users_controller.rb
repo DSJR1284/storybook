@@ -2,6 +2,7 @@ class UsersController < ApplicationController
         
     def index
         @users = User.alpha 
+        @random_story = Story.all.sample 
     end 
 
     def new        
